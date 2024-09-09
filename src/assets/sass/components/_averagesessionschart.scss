@@ -1,0 +1,26 @@
+// _averagesessionschart.scss
+
+.average-session-chart {
+    background-color: firebrick;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+
+    &__title {
+        color: white;
+    }
+
+    &__tooltip {
+        background-color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    // &__xaxis {
+    //     g {
+    //         g {
+    //             padding-top: 10px;
+    //         }
+    //     }
+    // }
+}

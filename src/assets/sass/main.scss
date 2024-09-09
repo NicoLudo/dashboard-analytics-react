@@ -1,0 +1,19 @@
+// main.scss
+
+// base
+@import 'base/body';
+@import 'base/root';
+
+// components
+@import 'components/averagesessionschart';
+
+// layouts
+@import 'layouts/aside';
+@import 'layouts/header';
+@import 'layouts/main-container';
+
+// pages
+@import 'pages/dashboard';
+
+// utils
+@import 'utils/variables';
