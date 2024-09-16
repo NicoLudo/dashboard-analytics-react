@@ -1,10 +1,14 @@
 import React from 'react';
-import { USER_MAIN_DATA_MOCK } from '../mockData';
+import useFetchData from '../hooks/useFetchData';
 import AverageSessionsChart from '../components/AverageSessionsChart';
 
 const Dashboard = () => {
-  const user = USER_MAIN_DATA_MOCK.find(user => user.id === 12);
+  const user = useFetchData((dataSource) => dataSource.getUserMainData());
 
+  if (!user) {
+    return <div>Chargement...</div>;
+  }
+  
   const { firstName } = user.userInfos;
 
   return (

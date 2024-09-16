@@ -144,7 +144,7 @@ export const USER_AVERAGE_SESSIONS_MOCK = [
             },
             {
                 day: 7,
-                sessionLength: 60
+                sessionLength: 30
             }
         ]
     },

@@ -1,9 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { USER_AVERAGE_SESSIONS_MOCK } from '../mockData';
-
-const userAverageSessions = USER_AVERAGE_SESSIONS_MOCK.find(session => session.userId === 12);
-const data = userAverageSessions.sessions;
+import useFetchData from '../hooks/useFetchData';
 
 const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
@@ -19,6 +16,14 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const AverageSessionsChart = () => {
+  const sessionsData = useFetchData((dataSource) => dataSource.getUserAverageSessions());
+
+  if (!sessionsData) {
+    return <div>Chargement des sessions...</div>;
+  }
+
+  const data = sessionsData.sessions;
+
   return (
     <div className="average-session-chart">
       <h2 className="average-session-chart__title">Durée moyenne des sessions</h2>
