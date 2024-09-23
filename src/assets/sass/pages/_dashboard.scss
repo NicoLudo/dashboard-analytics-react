@@ -1,2 +1,38 @@
 // _dashboard.scss
 
+@import '../utils/mixins';
+@import '../utils/variables';
+
+#dashboard__bottom-section {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: 5fr 4fr;
+    gap: 30px;
+
+    & > div:nth-child(2) {
+        grid-row: span 2;
+    }
+
+    & > div:nth-child(3) {
+        display: flex;
+        gap: 30px;
+
+        & > .chart {
+            width: 100%;
+        }
+    }
+}
+
+#dashboard {
+    &__title {
+        font-size: $h1-font-size;
+
+        & span {
+            color: red;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+    }
+}

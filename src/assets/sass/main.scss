@@ -6,6 +6,8 @@
 
 // components
 @import 'components/averagesessionschart';
+@import 'components/performanceradarchart';
+@import 'components/scorechart';
 
 // layouts
 @import 'layouts/aside';
@@ -16,4 +18,5 @@
 @import 'pages/dashboard';
 
 // utils
+@import 'utils/mixins';
 @import 'utils/variables';

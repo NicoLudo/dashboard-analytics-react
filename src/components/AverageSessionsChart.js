@@ -25,9 +25,9 @@ const AverageSessionsChart = () => {
   const data = sessionsData.sessions;
 
   return (
-    <div className="average-session-chart">
+    <div className="chart average-session-chart">
       <h2 className="average-session-chart__title">Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer>
         <LineChart data={data}>
           <XAxis
             className="average-session-chart__xaxis"

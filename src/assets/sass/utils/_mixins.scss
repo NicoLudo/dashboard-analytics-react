@@ -1,0 +1,10 @@
+// _mixins.scss
+
+@import '../utils/variables';
+
+@mixin chart($background-color: $grey-color) {
+    background-color: $background-color;
+    padding: 20px;
+    border-radius: 10px;
+    height: 250px;
+}

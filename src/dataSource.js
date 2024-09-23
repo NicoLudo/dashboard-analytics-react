@@ -21,7 +21,7 @@ class DataSource {
   }
 
   async getData(dataType) {
-    const userId = 12;
+    const userId = 12; // 12 = Karl ; 18 = Cecilia
     if (this.useMock) {
       return this.getMockData(dataType, userId);
     } else {
