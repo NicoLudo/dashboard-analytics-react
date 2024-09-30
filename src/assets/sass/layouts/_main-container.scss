@@ -1,7 +1,11 @@
 // _main-container.scss
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
     grid-column: 2;
     grid-row: 2;
-    padding: 25px 50px;
+    margin: 25px 50px;
 }

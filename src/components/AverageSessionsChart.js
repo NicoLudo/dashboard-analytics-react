@@ -1,8 +1,8 @@
-import React from 'react';
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import useFetchData from '../hooks/useFetchData';
+import React from "react";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import useFetchData from "../hooks/useFetchData";
 
-const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+const daysOfWeek = ["L", "M", "M", "J", "V", "S", "D"];
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -29,23 +29,9 @@ const AverageSessionsChart = () => {
       <h2 className="average-session-chart__title">Durée moyenne des sessions</h2>
       <ResponsiveContainer>
         <LineChart data={data}>
-          <XAxis
-            className="average-session-chart__xaxis"
-            dataKey="day"
-            tickFormatter={(index) => daysOfWeek[index - 1]}
-            tick={{ fill: '#FFF' }}
-            axisLine={false}
-            tickLine={false}
-          />
+          <XAxis className="average-session-chart__xaxis" dataKey="day" tickFormatter={(index) => daysOfWeek[index - 1]} tick={{ fill: "white" }} axisLine={false} tickLine={false} />
           <Tooltip content={<CustomTooltip />} cursor={false} />
-          <Line
-            type="monotone"
-            dataKey="sessionLength"
-            stroke="#FFF"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{ strokeWidth: 8 }}
-          />
+          <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2} dot={false} activeDot={{ strokeWidth: 8 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

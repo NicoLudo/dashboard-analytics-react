@@ -1,0 +1,14 @@
+// _dailyactivitychart.scss
+
+.daily-activity-chart {
+    @include chart();
+
+    &__tooltip {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: red;
+        padding: 15px;
+        color: white;
+    }
+}

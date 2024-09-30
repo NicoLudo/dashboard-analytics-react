@@ -1,0 +1,26 @@
+// _nutritioncards.scss
+
+.dashboard {
+    &__nutrition-cards {
+        display: grid;
+        gap: 30px;
+    }
+}
+
+.nutrition-card {
+    @include chart($height: 90px);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	gap: 20px;
+
+    &__icon {
+        @include card-icon();
+    }
+
+    &__value {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+}

@@ -1,22 +1,24 @@
 // main.scss
 
 // base
-@import 'base/body';
-@import 'base/root';
+@import "base/body";
+@import "base/root";
 
 // components
-@import 'components/averagesessionschart';
-@import 'components/performanceradarchart';
-@import 'components/scorechart';
+@import "components/averagesessionschart";
+@import "components/dailyactivitychart";
+@import "components/nutritioncards";
+@import "components/performanceradarchart";
+@import "components/scorechart";
 
 // layouts
-@import 'layouts/aside';
-@import 'layouts/header';
-@import 'layouts/main-container';
+@import "layouts/aside";
+@import "layouts/header";
+@import "layouts/main-container";
 
 // pages
-@import 'pages/dashboard';
+@import "pages/dashboard";
 
 // utils
-@import 'utils/mixins';
-@import 'utils/variables';
+@import "utils/mixins";
+@import "utils/variables";

@@ -1,7 +1,7 @@
-import './assets/sass/main.scss';
-import Dashboard from './pages/Dashboard';
-import Header from './layouts/Header';
-import Aside from './layouts/Aside';
+import "./assets/sass/main.scss";
+import Dashboard from "./pages/Dashboard";
+import Header from "./layouts/Header";
+import Aside from "./layouts/Aside";
 
 const App = () => {
   return (

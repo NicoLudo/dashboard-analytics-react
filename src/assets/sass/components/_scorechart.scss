@@ -1,7 +1,5 @@
 // _scorechart.scss
 
-@import '../utils/mixins';
-
 .score-chart {
     @include chart();
 

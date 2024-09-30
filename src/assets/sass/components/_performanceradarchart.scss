@@ -1,7 +1,5 @@
 // _performanceradarchart.scss
 
-@import '../utils/mixins';
-
 .performance-radar-chart {
     @include chart(dimgray);
 }

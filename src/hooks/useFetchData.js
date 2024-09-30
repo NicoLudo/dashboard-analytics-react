@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import DataSource from '../dataSource';
+import { useState, useEffect } from "react";
+import DataSource from "../dataSource";
 
 const useFetchData = (fetchFunction) => {
   const [data, setData] = useState(null);
