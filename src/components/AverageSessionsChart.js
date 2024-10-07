@@ -1,6 +1,7 @@
 import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import useFetchData from "../hooks/useFetchData";
+import { useParams } from "react-router-dom";
 
 const daysOfWeek = ["L", "M", "M", "J", "V", "S", "D"];
 
@@ -16,7 +17,8 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const AverageSessionsChart = () => {
-  const sessionsData = useFetchData((dataSource) => dataSource.getUserAverageSessions());
+  const { userId } = useParams();
+  const sessionsData = useFetchData((dataSource) => dataSource.getUserAverageSessions(userId), userId);
 
   if (!sessionsData) {
     return <div>Chargement des sessions...</div>;

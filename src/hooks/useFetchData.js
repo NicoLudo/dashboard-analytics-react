@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import DataSource from "../dataSource";
 
-const useFetchData = (fetchFunction) => {
+const useFetchData = (fetchFunction, userId) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -9,15 +9,17 @@ const useFetchData = (fetchFunction) => {
 
     const fetchData = async () => {
       try {
-        const result = await fetchFunction(dataSource);
+        const result = await fetchFunction(dataSource, userId);
         setData(result);
       } catch (error) {
         console.error("Error retrieving user data:", error);
       }
     };
 
-    fetchData();
-  }, [fetchFunction]);
+    if (userId) {
+      fetchData();
+    }
+  }, [fetchFunction, userId]);
 
   return data;
 };

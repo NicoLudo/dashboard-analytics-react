@@ -1,7 +1,17 @@
 // _header.scss
 
 header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color: $main-menu-color;
     grid-column: span 2;
-    padding: $main-menu-padding;
+    padding: 0 15px; 
+    align-items: center;
+    height: 80px;
+    text-align: center;
+
+    & p {
+        color: white;
+        font-size: 1.5rem;
+    }
 }

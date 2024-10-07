@@ -2,5 +2,39 @@
 
 aside {
     background-color: $main-menu-color;
-    padding: $main-menu-padding;
+    padding: 50px 0;
+    width: 100px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+
+    & .aside__icons {
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    & .aside__icon {
+        padding: 17px;
+        background-color: white;
+        border-radius: 6px;
+    }
+
+    & img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    & p {
+        color: white;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+    }
+
+    & .aside__copyright {
+        display: flex;
+        justify-content: center;
+    }
 }

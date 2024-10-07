@@ -20,8 +20,11 @@ class DataSource {
     this.apiBaseUrl = "http://localhost:5000";
   }
 
-  async getData(dataType) {
-    const userId = 12; // 12 = Karl ; 18 = Cecilia
+  async getData(dataType, userId) {
+    if (!userId) {
+      throw new Error("User ID is required to fetch data.");
+    }
+
     if (this.useMock) {
       return this.getMockData(dataType, userId);
     } else {
@@ -34,14 +37,14 @@ class DataSource {
     if (!dataArray) {
       throw new Error(`Invalid data type: ${dataType}`);
     }
-
-    const data = dataArray.find((item) => item.userId === userId || item.id === userId);
+  
+    const data = dataArray.find((item) => item.userId === Number(userId) || item.id === Number(userId));
     if (!data) {
       throw new Error(`No data found for the user with ID ${userId}`);
     }
     return data;
   }
-
+  
   async getApiData(dataType, userId) {
     const endpointFn = apiEndpoints[dataType];
     if (!endpointFn) {
@@ -62,20 +65,20 @@ class DataSource {
     }
   }
 
-  async getUserMainData() {
-    return this.getData("mainData");
+  async getUserMainData(userId) {
+    return this.getData("mainData", userId);
   }
 
-  async getUserActivity() {
-    return this.getData("activity");
+  async getUserActivity(userId) {
+    return this.getData("activity", userId);
   }
 
-  async getUserAverageSessions() {
-    return this.getData("averageSessions");
+  async getUserAverageSessions(userId) {
+    return this.getData("averageSessions", userId);
   }
 
-  async getUserPerformance() {
-    return this.getData("performance");
+  async getUserPerformance(userId) {
+    return this.getData("performance", userId);
   }
 }
 

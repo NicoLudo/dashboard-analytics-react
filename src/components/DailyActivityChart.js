@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import useFetchData from "../hooks/useFetchData";
+import { useParams } from "react-router-dom";
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -15,7 +16,8 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const DailyActivityChart = () => {
-  const activityData = useFetchData((dataSource) => dataSource.getUserActivity());
+  const { userId } = useParams();
+  const activityData = useFetchData((dataSource) => dataSource.getUserActivity(userId), userId);
 
   if (!activityData) {
     return <div>Chargement des données d"activité...</div>;

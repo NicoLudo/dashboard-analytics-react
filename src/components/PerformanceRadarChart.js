@@ -1,9 +1,11 @@
 import React from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import useFetchData from "../hooks/useFetchData";
+import { useParams } from "react-router-dom";
 
 const PerformanceRadarChart = () => {
-  const performanceData = useFetchData((dataSource) => dataSource.getUserPerformance());
+  const { userId } = useParams();
+  const performanceData = useFetchData((dataSource) => dataSource.getUserPerformance(userId), userId);
 
   if (!performanceData) {
     return <div>Chargement des performances...</div>;

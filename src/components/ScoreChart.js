@@ -1,11 +1,11 @@
-// ScoreChart.js
-
 import React from "react";
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from "recharts";
 import useFetchData from "../hooks/useFetchData";
+import { useParams } from "react-router-dom";
 
 const ScoreChart = () => {
-  const userData = useFetchData((dataSource) => dataSource.getUserMainData());
+  const { userId } = useParams();
+  const userData = useFetchData((dataSource) => dataSource.getUserMainData(userId), userId);
 
   if (!userData) {
     return <div>Chargement du score...</div>;

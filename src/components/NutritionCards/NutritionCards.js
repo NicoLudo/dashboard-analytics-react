@@ -1,14 +1,16 @@
 import React from "react";
-import NutritionCard from "./NutritionCard";
+import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 
+import NutritionCard from "./NutritionCard";
 import calorieIcon from "../../assets/img/Nutrition Cards/energy.svg";
 import proteinIcon from "../../assets/img/Nutrition Cards/chicken.svg";
 import carbIcon from "../../assets/img/Nutrition Cards/apple.svg";
 import lipidIcon from "../../assets/img/Nutrition Cards/cheeseburger.svg";
 
 const NutritionCards = () => {
-  const userData = useFetchData((dataSource) => dataSource.getUserMainData());
+  const { userId } = useParams();
+  const userData = useFetchData((dataSource) => dataSource.getUserMainData(userId), userId);
 
   if (!userData) {
     return <div>Chargement des données nutritionnelles...</div>;
