@@ -10,13 +10,13 @@ import NutritionCards from "../components/NutritionCards/NutritionCards";
 
 const Dashboard = () => {
   const { userId } = useParams();
-  const user = useFetchData((dataSource) => dataSource.getUserMainData(userId), userId);
+  const { data: user, loading, error } = useFetchData(userId, "mainData");
 
-  if (!user) {
-    return <p>Aucun utilisateur trouvé avec cet identifiant.</p>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des données...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!user) return <p>Les données utilisateur sont indisponibles.</p>;
 
-  const { firstName } = user.userInfos;
+  const firstName = typeof user?.userInfos?.firstName === "string" ? user.userInfos.firstName : "Utilisateur";
 
   return (
     <>

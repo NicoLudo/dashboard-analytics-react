@@ -17,11 +17,11 @@ const CustomTooltip = ({ active, payload }) => {
 
 const DailyActivityChart = () => {
   const { userId } = useParams();
-  const activityData = useFetchData((dataSource) => dataSource.getUserActivity(userId), userId);
+  const { data: activityData, loading, error } = useFetchData(userId, "activity");
 
-  if (!activityData) {
-    return <div>Chargement des données d"activité...</div>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des données d'activité...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!activityData) return <p>Les données d'activité sont indisponibles.</p>;
 
   const data = activityData.sessions.map((session, index) => ({
     day: index + 1,
@@ -33,7 +33,7 @@ const DailyActivityChart = () => {
     <div className="daily-activity-chart">
       <h2 className="daily-activity-chart__title">Activité quotidienne</h2>
       <ResponsiveContainer>
-        <BarChart data={data} margin={{ bottom: 20 }} >
+        <BarChart data={data} margin={{ bottom: 20 }}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tickLine={false} tick={{ dy: 10 }} />
           <YAxis yAxisId="kg" orientation="right" axisLine={false} tickLine={false} domain={["dataMin - 1", "dataMax + 1"]} tick={{ dx: 10 }} />

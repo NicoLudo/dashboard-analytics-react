@@ -50,21 +50,30 @@ class DataSource {
     if (!endpointFn) {
       throw new Error(`Invalid data type: ${dataType}`);
     }
-
+  
     const endpoint = endpointFn(userId);
     try {
       const response = await fetch(`${this.apiBaseUrl}${endpoint}`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        switch (response.status) {
+          case 404:
+            throw new Error("L'utilisateur avec cet identifiant est introuvable.");
+          case 500:
+            throw new Error("Erreur interne du serveur. Veuillez réessayer plus tard.");
+          default:
+            throw new Error(`Erreur inattendue : ${response.status}`);
+        }
       }
-      const data = await response.json();      
+      const data = await response.json();
       return data.data;
     } catch (error) {
-      console.error(`Error while fetching "${dataType}" user data from the API:`, error);
+      if (error.message === "Failed to fetch" || error.message.includes("ERR_CONNECTION_REFUSED")) {
+        throw new Error("L'API n'est actuellement pas disponible. Veuillez réessayer plus tard.");
+      }
       throw error;
     }
   }
-
+  
   async getUserMainData(userId) {
     return this.getData("mainData", userId);
   }

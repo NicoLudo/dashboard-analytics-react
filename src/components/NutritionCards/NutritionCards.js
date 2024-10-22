@@ -10,11 +10,11 @@ import lipidIcon from "../../assets/img/Nutrition Cards/cheeseburger.svg";
 
 const NutritionCards = () => {
   const { userId } = useParams();
-  const userData = useFetchData((dataSource) => dataSource.getUserMainData(userId), userId);
+  const { data: userData, loading, error } = useFetchData(userId, "mainData");
 
-  if (!userData) {
-    return <div>Chargement des données nutritionnelles...</div>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des données nutritionnelles...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!userData) return <p>Les données nutritionnelles sont indisponibles.</p>;
 
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = userData.keyData;
 

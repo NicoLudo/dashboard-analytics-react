@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 
 const PerformanceRadarChart = () => {
   const { userId } = useParams();
-  const performanceData = useFetchData((dataSource) => dataSource.getUserPerformance(userId), userId);
+  const { data: performanceData, loading, error } = useFetchData(userId, "performance");
 
-  if (!performanceData) {
-    return <div>Chargement des performances...</div>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des performances...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!performanceData) return <p>Les données de performance sont indisponibles.</p>;
 
   const customKindLabels = {
     1: "Cardio",

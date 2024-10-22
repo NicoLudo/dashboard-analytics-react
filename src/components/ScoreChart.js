@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 
 const ScoreChart = () => {
   const { userId } = useParams();
-  const userData = useFetchData((dataSource) => dataSource.getUserMainData(userId), userId);
+  const { data: userData, loading, error } = useFetchData(userId, "mainData");
 
-  if (!userData) {
-    return <div>Chargement du score...</div>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des données...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!userData) return <p>Les données utilisateur sont indisponibles.</p>;
 
   const score = userData.todayScore || userData.score;
 

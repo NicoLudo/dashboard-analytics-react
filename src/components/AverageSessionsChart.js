@@ -18,11 +18,11 @@ const CustomTooltip = ({ active, payload }) => {
 
 const AverageSessionsChart = () => {
   const { userId } = useParams();
-  const sessionsData = useFetchData((dataSource) => dataSource.getUserAverageSessions(userId), userId);
+  const { data: sessionsData, loading, error } = useFetchData(userId, "averageSessions");
 
-  if (!sessionsData) {
-    return <div>Chargement des sessions...</div>;
-  }
+  if (loading) return <p aria-live="polite">Chargement des sessions...</p>;
+  if (error) return <p aria-live="assertive">{error}</p>;
+  if (!sessionsData) return <p>Les données des sessions sont indisponibles.</p>;
 
   const data = sessionsData.sessions;
 
