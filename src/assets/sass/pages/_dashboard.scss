@@ -1,37 +1,39 @@
 // _dashboard.scss
 
 #dashboard {
+    display: grid;
+    gap: 30px;
+
     &__bottom-section {
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto;
         display: grid;
-        grid-template-columns: 4fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 30px;
+        gap: inherit;
 
-        & > div:nth-child(2) {
-            grid-row: span 2;
-        }
+        & .dashboard {
+            &__nutrition-cards {
+                grid-row: span 2;
+            }
 
-        & > div:nth-child(3) {
-            display: flex;
-            gap: 30px;
-
-            & > .chart {
-                width: 100%;
+            &__chart-group {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: inherit;
             }
         }
     }
-}
 
-.dashboard {
-    &__title {
-        font-size: $h1-font-size;
+    &__top-section {
+        & .dashboard {
+            &__title {
+                & span {
+                    color: red;
+                }
+            }
 
-        & span {
-            color: red;
+            &__subtitle {
+                font-size: 1.2rem;
+            }
         }
-    }
-
-    &__subtitle {
-        font-size: 1.2rem;
     }
 }

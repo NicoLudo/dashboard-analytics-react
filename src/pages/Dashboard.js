@@ -25,12 +25,12 @@ const Dashboard = () => {
         <p className="dashboard__subtitle">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </section>
       <section id="dashboard__bottom-section">
-        <div className="dashboard__chart-daily-activity"><DailyActivityChart userId={userId} /></div>
+        <DailyActivityChart userId={userId} />
         <div className="dashboard__nutrition-cards"><NutritionCards userId={userId} /></div>
-        <div>
-          <div className="chart dashboard__chart-average-sessions"><AverageSessionsChart userId={userId} /></div>
-          <div className="chart dashboard__chart-radar"><PerformanceRadarChart userId={userId} /></div>
-          <div className="chart dashboard__chart-score"><ScoreChart userId={userId} /></div>
+        <div className="dashboard__chart-group">
+          <AverageSessionsChart userId={userId} />
+          <PerformanceRadarChart userId={userId} />
+          <ScoreChart userId={userId} />
         </div>
       </section>
     </>

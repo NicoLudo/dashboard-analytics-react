@@ -28,10 +28,10 @@ const ScoreChart = () => {
         <RadialBarChart innerRadius="80%" outerRadius="100%" barSize={15} data={data} startAngle={90} endAngle={450}>
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar background dataKey="value" />
-          <text x="50%" y="50%" textAnchor="middle" className="score-chart__progress-label">{`${(score * 100).toFixed(0)}%`}</text>
-          <text x="50%" y="65%" textAnchor="middle">de votre objectif</text>
+          <text x="50%" y="55%" textAnchor="middle" className="score-chart__progress-label">{`${(score * 100).toFixed(0)}%`}</text>
         </RadialBarChart>
       </ResponsiveContainer>
+      <p className="score-chart__progress-text">de votre objectif</p>
     </div>
   );
 };

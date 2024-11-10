@@ -1,7 +1,7 @@
 // _dailyactivitychart.scss
 
 .daily-activity-chart {
-    @include chart();
+    @include chart($rows: auto 250px);
 
     &__tooltip {
         display: flex;

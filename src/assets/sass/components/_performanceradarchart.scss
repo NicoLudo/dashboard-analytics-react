@@ -1,5 +1,17 @@
 // _performanceradarchart.scss
 
 .performance-radar-chart {
-    @include chart(dimgray);
+    background-color: dimgray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__content {
+        height: 9.375rem !important;
+
+        @media (min-width: 1200px) {
+            height: 12.5rem !important;
+        }
+    }
 }

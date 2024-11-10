@@ -26,8 +26,8 @@ const PerformanceRadarChart = () => {
   }));
 
   return (
-    <div className="chart performance-radar-chart">
-      <ResponsiveContainer>
+    <div className="performance-radar-chart">
+      <ResponsiveContainer className="performance-radar-chart__content" height={250}>
         <RadarChart data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="kind" tick={{ fill: "white" }} />

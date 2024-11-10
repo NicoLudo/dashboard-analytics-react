@@ -3,15 +3,15 @@
 .dashboard {
     &__nutrition-cards {
         display: grid;
+        grid-template-rows: repeat(4, 1fr);
         gap: 30px;
     }
 }
 
 .nutrition-card {
-    @include chart($height: 90px);
+    @include chart();
 
     display: flex;
-    flex-direction: row;
     align-items: center;
 	gap: 20px;
 
