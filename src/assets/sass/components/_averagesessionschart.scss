@@ -1,7 +1,5 @@
 // _averagesessionschart.scss
 
-@import "../utils/mixins";
-
 .average-session-chart {
     @include chart(red);
 

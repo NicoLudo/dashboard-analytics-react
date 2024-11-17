@@ -4,6 +4,10 @@
 @import "base/body";
 @import "base/root";
 
+// utils
+@import "utils/mixins";
+@import "utils/variables";
+
 // components
 @import "components/averagesessionschart";
 @import "components/dailyactivitychart";
@@ -18,7 +22,3 @@
 
 // pages
 @import "pages/dashboard";
-
-// utils
-@import "utils/mixins";
-@import "utils/variables";
