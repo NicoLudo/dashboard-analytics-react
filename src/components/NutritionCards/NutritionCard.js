@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const NutritionCard = ({ icon, value, unit, label }) => {
   return (
@@ -12,6 +13,13 @@ const NutritionCard = ({ icon, value, unit, label }) => {
       </div>
     </div>
   );
+};
+
+NutritionCard.propTypes = {
+  icon: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default NutritionCard;
